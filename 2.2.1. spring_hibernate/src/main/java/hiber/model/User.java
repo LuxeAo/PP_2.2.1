@@ -27,6 +27,25 @@ public class User {
       this.email = email;
    }
 
+   @OneToOne(cascade = CascadeType.ALL)
+   @JoinColumn(name = "cars_id")
+   private Car car;
+
+   public Car getCar() {
+      return car;
+   }
+
+   public void setCar(Car car) {
+      this.car = car;
+   }
+
+   public User(String firstName,String lastName,String email,Car car) {
+      this.car = car;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+   }
+
    public Long getId() {
       return id;
    }
